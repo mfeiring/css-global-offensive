@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Open Sans ExtraBold'), local('OpenSans-ExtraBold'),
+    url('OpenSans-ExtraBold.ttf') format('truetype');
+}
