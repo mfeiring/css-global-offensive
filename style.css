@@ -1,114 +1,55 @@
-* {
+*,
+:before,
+:after {
   box-sizing: border-box;
-  cursor: url('assets/crosshair.png') 16 16, crosshair;
   margin: 0;
 }
 
 body {
   color: white;
   font: bold 2.5rem/1 'Open Sans', sans-serif;
-  height: 100vh;
-  margin-top: 4.5rem;
-  overflow: hidden;
   text-align: center;
   user-select: none;
-}
-
-footer {
-  background: #273434;
-  padding: 1rem;
-  position: absolute;
-  top: 0;
-  width: 100vw;
-}
-
-input {
-  height: 0;
-  width: 0;
-  opacity: 0;
-}
-
-input:checked {
-  counter-increment: hits;
-}
-
-footer:before {
-  content: counter(hits) '/5 ';
-}
-
-label {
-  animation: walk 5s infinite linear alternate;
-  cursor: url('assets/crosshair_active.png') 16 16, crosshair;
-  display: inline-block;
-  font-size: 5rem;
-}
-
-label:nth-of-type(even) {
-  animation-direction: alternate-reverse;
-  animation-duration: 3.5s;
-  transform: translateY(80vh);
-}
-
-label:nth-of-type(n + 3) {
-  animation-delay: 1s;
-}
-
-label:nth-of-type(-n + 3) {
-  animation-duration: 7s;
-}
-
-label:before {
-  content: '🧟';
-}
-
-input:checked + label:before {
-  content: '💀';
-}
-
-input:checked + label {
-  animation-play-state: paused;
-  pointer-events: none;
+  margin-top: 4.5rem;
 }
 
 .you-win {
-  align-items: center;
   background: linear-gradient(darkslategray, black);
-  display: flex;
   font-size: 4rem;
   height: 100vh;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  width: 100vw;
   position: absolute;
   top: 100vh;
+}
+
+header {
+  background: #273434;
+  padding: 1rem;
   width: 100vw;
-}
-
-input:checked
-  ~ input:checked
-  ~ input:checked
-  ~ input:checked
-  ~ input:checked
-  ~ .you-win {
+  position: absolute;
   top: 0;
-  transition: 200ms;
 }
 
-@keyframes walk {
-  0% {
-    transform: translateY(0);
-  }
-  20% {
-    transform: translateY(20vh) translateX(50px);
-  }
-  40% {
-    transform: translateY(60vh) translateX(-150px);
-  }
-  60% {
-    transform: translateY(30vh) translateX(-100px);
-  }
-  80% {
-    transform: translateY(65vh) translateX(100px);
-  }
-  100% {
-    transform: translateY(80vh);
-  }
+input {
+  height: 5rem;
+  width: 5rem;
+  font-size: 5rem;
+  line-height: 1;
 }
+
+header:before {
+  content: '0 ';
+}
+
+/* Hit counter */
+
+/* Style targets */
+
+/* Motion */
+
+/* Aim */
+
+/* Completion */

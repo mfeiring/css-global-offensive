@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  margin: 0;
 }
 
 body {
@@ -8,6 +7,7 @@ body {
   font: bold 2.5rem/1 'Open Sans', sans-serif;
   text-align: center;
   user-select: none;
+  margin: 0;
   margin-top: 4.5rem;
 }
 
@@ -18,12 +18,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100vw;
   position: absolute;
   top: 100vh;
-  width: 100vw;
 }
 
-footer {
+header {
   background: #273434;
   padding: 1rem;
   width: 100vw;
@@ -32,12 +32,17 @@ footer {
 }
 
 input {
-  zoom: 3;
+  height: 5rem;
+  width: 5rem;
+  font-size: 5rem;
+  line-height: 1;
 }
 
 footer:before {
-  content: '0';
+  content: '0 ';
 }
+
+/* Live coding start */
 
 /* Hit counter */
 input:checked {
@@ -50,92 +55,88 @@ footer:before {
 
 /* Style targets */
 input {
-  height: 0;
-  width: 0;
+  appearance: none;
 }
 
-label {
-  display: inline-block;
-  font-size: 5rem;
-}
-
-label:before {
+input:before {
   content: '🧟';
 }
 
-input:checked + label:before {
+input:checked:before {
   content: '💀';
 }
 
-input:checked + label {
+input:checked {
   pointer-events: none;
 }
 
 /* Motion */
+
 @keyframes walk {
   0% {
     transform: translateY(0);
   }
+
   20% {
     transform: translateY(20vh) translateX(50px);
   }
+
   40% {
     transform: translateY(60vh) translateX(-150px);
   }
+
   60% {
     transform: translateY(30vh) translateX(-100px);
   }
+
   80% {
     transform: translateY(65vh) translateX(100px);
   }
+
   100% {
     transform: translateY(80vh);
   }
 }
 
-label {
+input {
   animation: walk 5s infinite linear alternate;
 }
 
-input:checked + label {
-  animation-play-state: paused;
-}
-
-label:nth-of-type(even) {
-  transform: translateY(80vh);
+input:nth-of-type(even) {
   animation-direction: alternate-reverse;
-  animation-duration: 3.5s;
+  transform: translateY(80vh)
 }
 
-label:nth-of-type(n + 3) {
+input:nth-of-type(n + 3) {
   animation-delay: 1s;
 }
 
-label:nth-of-type(-n + 3) {
-  animation-duration: 7s;
+input:nth-of-type(-n + 3) {
+  animation-duration: 3.5s
+}
+
+input:checked {
+  animation-play-state: paused;
 }
 
 /* Aim */
+
 * {
-  cursor: url('assets/crosshair.png') 16 16, crosshair;
+  cursor: url(assets/crosshair.png) 16 16, crosshair;
 }
 
-label {
-  cursor: url('assets/crosshair_active.png') 16 16, crosshair;
+input {
+  cursor: url(assets/crosshair_active.png) 16 16, crosshair
 }
 
 /* Completion */
+
 body {
   height: 100vh;
   overflow: hidden;
 }
 
-input:checked
-  ~ input:checked
-  ~ input:checked
-  ~ input:checked
-  ~ input:checked
-  ~ .you-win {
+input:checked+input:checked+input:checked+input:checked+input:checked~.you-win {
   top: 0;
   transition: 200ms;
 }
